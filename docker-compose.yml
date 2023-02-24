@@ -5,8 +5,8 @@ networks:
     driver: bridge
 
 services:
-  template-filter:
-    container_name: template-filter-container
+  cmc-filter:
+    container_name: cmc-filter-container
     build:
       dockerfile: Dockerfile
       context: .
@@ -14,9 +14,7 @@ services:
       - app-tier
     environment:
       - SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka:9092
-      - SPRING_KAFKA_CONSUMER_GROUP-ID=template-filters
-      - FILTER_SOURCE=template-source
-      - FILTER_SUBTHEME=template-theme
+      - SPRING_KAFKA_CONSUMER_GROUP-ID=cmc-filters
     depends_on:
       - kafka
 

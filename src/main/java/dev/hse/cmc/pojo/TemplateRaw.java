@@ -1,4 +1,4 @@
-package dev.hse.template.pojo;
+package dev.hse.cmc.pojo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;

@@ -1,23 +1,23 @@
-package dev.hse.template.kafka;
+package dev.hse.cmc.kafka;
 
-import dev.hse.template.pojo.TemplateFiltered;
+import dev.hse.cmc.pojo.CryptoCurrencyFiltered;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
-@Slf4j(topic = "[sourcename][filter][outcome]")
+@Slf4j(topic = "[cmc][filter][outcome]")
 @Service
 @RequiredArgsConstructor
 public class KafkaProducerService {
 
     @Value("${filter.source}.${filter.subtheme}.filters.outcome")
     private String outputTopic;
-    private final KafkaTemplate<String, TemplateFiltered> kafkaTemplate;
+    private final KafkaTemplate<String, CryptoCurrencyFiltered> kafkaTemplate;
 
-    public void send(TemplateFiltered templateFiltered) {
+    public void send(CryptoCurrencyFiltered cryptoCurrencyFiltered) {
         log.info("Sending to '{}' topic", outputTopic);
-        kafkaTemplate.send(outputTopic, templateFiltered);
+        kafkaTemplate.send(outputTopic, cryptoCurrencyFiltered);
     }
 }

@@ -1,12 +1,12 @@
-package dev.hse.template;
+package dev.hse.cmc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TemplateFilterApplication {
+public class CoinMarketCapFilterApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(TemplateFilterApplication.class, args);
+        SpringApplication.run(CoinMarketCapFilterApplication.class, args);
     }
 }
