@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
-@Slf4j(topic = "[sourcename][filter][income]")
+@Slf4j(topic = "[cmc][filter][income]")
 @Service
 @RequiredArgsConstructor
 public class KafkaConsumerService {

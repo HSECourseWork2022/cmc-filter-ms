@@ -3,13 +3,12 @@ package dev.hse.cmc.process;
 import dev.hse.cmc.kafka.KafkaProducerService;
 import dev.hse.cmc.pojo.CryptoCurrencyData;
 import dev.hse.cmc.pojo.CryptoCurrencyFiltered;
-import dev.hse.cmc.utils.ServiceConstants;
 import java.time.ZoneId;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-@Slf4j(topic = ServiceConstants.LOG_TOPIC)
+@Slf4j(topic = "[cmc][filter][processing]")
 @Service
 @RequiredArgsConstructor
 public class ProcessingService {

@@ -7,7 +7,7 @@ import dev.hse.cmc.pojo.CryptoCurrencyFiltered;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.serialization.Serializer;
 
-@Slf4j(topic = "[sourcename][filter][kafka-serializer]")
+@Slf4j(topic = "[cmc][filter][kafka-serializer]")
 public class FilteredModelSerializer implements Serializer<CryptoCurrencyFiltered> {
 
     private final JsonMapper mapper = JsonMapperUtils.getJsonMapper();

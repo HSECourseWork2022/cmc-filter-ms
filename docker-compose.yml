@@ -14,7 +14,7 @@ services:
       - app-tier
     environment:
       - SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka:9092
-      - SPRING_KAFKA_CONSUMER_GROUP-ID=template-filters
+      - SPRING_KAFKA_CONSUMER_GROUP-ID=cmc-filters
     depends_on:
       - kafka
 

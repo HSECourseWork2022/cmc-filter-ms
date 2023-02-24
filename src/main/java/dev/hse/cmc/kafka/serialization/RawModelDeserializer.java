@@ -7,7 +7,7 @@ import java.io.IOException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.serialization.Deserializer;
 
-@Slf4j(topic = "[sourcename][filter][kafka-deserializer]")
+@Slf4j(topic = "[cmc][filter][kafka-deserializer]")
 public class RawModelDeserializer implements Deserializer<CryptoCurrencyData> {
 
     private final JsonMapper mapper = JsonMapperUtils.getJsonMapper();

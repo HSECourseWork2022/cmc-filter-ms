@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
-@Slf4j(topic = "[sourcename][filter][outcome]")
+@Slf4j(topic = "[cmc][filter][outcome]")
 @Service
 @RequiredArgsConstructor
 public class KafkaProducerService {
