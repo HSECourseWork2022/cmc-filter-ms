@@ -26,6 +26,7 @@ public class ProcessingService {
             .totalSupply((long) cryptoCurrencyData.getTotal_supply())
             .volume24h(cryptoCurrencyData.getQuote().getUsd().getVolume_24h())
             .marketCap(cryptoCurrencyData.getQuote().getUsd().getMarket_cap())
+            .priceUSD(cryptoCurrencyData.getQuote().usd.getPrice())
             .build();
 
         kafkaProducerService.send(filtered);
