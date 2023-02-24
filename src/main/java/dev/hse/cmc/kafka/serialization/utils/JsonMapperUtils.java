@@ -1,4 +1,4 @@
-package dev.hse.template.kafka.serialization.utils;
+package dev.hse.cmc.kafka.serialization.utils;
 
 
 import com.fasterxml.jackson.databind.json.JsonMapper;

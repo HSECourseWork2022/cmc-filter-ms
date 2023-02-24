@@ -1,7 +1,7 @@
-package dev.hse.template.kafka;
+package dev.hse.cmc.kafka;
 
-import dev.hse.template.pojo.TemplateRaw;
-import dev.hse.template.service.ProcessingService;
+import dev.hse.cmc.pojo.CryptoCurrencyData;
+import dev.hse.cmc.process.ProcessingService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -15,8 +15,8 @@ public class KafkaConsumerService {
     private final ProcessingService processingService;
 
     @KafkaListener(topics = "${filter.source}.${filter.subtheme}.producers.outcome")
-    public void consume(TemplateRaw templateRaw) {
-        log.info("Got from kafka: {} ", templateRaw);
-        processingService.process(templateRaw);
+    public void consume(CryptoCurrencyData cryptoCurrencyData) {
+        log.info("Got from kafka: {} ", cryptoCurrencyData);
+        processingService.process(cryptoCurrencyData);
     }
 }

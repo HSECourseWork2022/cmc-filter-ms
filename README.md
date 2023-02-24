@@ -4,8 +4,8 @@ Ready to kick-start Spring Boot application template filter with Dockerfile and 
 * Java: 17
 * Spring Boot: 2.7.5
 # What do you need to update?
-1. Rename `TemplateFilterApplication` in `dev.hse.template` package to `{{ sourcename }}{{ filtername }}FilterApplication`
-2. Under `src/main/java` rename `dev.hse.template` package to your preferred one
+1. Rename `TemplateFilterApplication` in `dev.hse.cmc` package to `{{ sourcename }}{{ filtername }}FilterApplication`
+2. Under `src/main/java` rename `dev.hse.cmc` package to your preferred one
 3. Change `artifactId` in pom from `template-filter-ms` to `{{ sourcename }}-{{ filtername }}-filter-ms`
 4. Update `docker-compose.yml`
    1. Change application service name `template-filter` to `{{ sourcename }}-{{ filtername }}-filter`
