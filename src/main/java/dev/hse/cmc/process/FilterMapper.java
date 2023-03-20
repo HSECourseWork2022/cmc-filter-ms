@@ -2,6 +2,8 @@ package dev.hse.cmc.process;
 
 import dev.hse.cmc.pojo.CryptoCurrencyData;
 import dev.hse.cmc.pojo.CryptoCurrencyFiltered;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -12,13 +14,18 @@ public interface FilterMapper {
     FilterMapper INSTANCE = Mappers.getMapper(FilterMapper.class);
 
     @Mapping(target = "vendor", constant = "1l")
-    @Mapping(target = "observedAt", expression = "java(cryptoCurrencyData.getQuote().getUsd().getLast_updated().toInstant().atZone(java.time.ZoneId.of(\"UTC+3\")).toLocalDateTime())")
-    @Mapping(target = "maxSupply", expression = "java((long)cryptoCurrencyData.getMax_supply())")
-    @Mapping(target = "circulatingSupply", expression = "java((long)cryptoCurrencyData.getCirculating_supply())")
-    @Mapping(target = "totalSupply", expression = "java((long)cryptoCurrencyData.getTotal_supply())")
-    @Mapping(target = "priceUSD", expression = "java(cryptoCurrencyData.getQuote().usd.getPrice())")
-    @Mapping(target = "volume24h", expression = "java(cryptoCurrencyData.getQuote().getUsd().getVolume_24h())")
-    @Mapping(target = "marketCap", expression = "java(cryptoCurrencyData.getQuote().getUsd().getMarket_cap())")
+    @Mapping(target = "maxSupply", source = "max_supply")
+    @Mapping(target = "circulatingSupply", source = "circulating_supply")
+    @Mapping(target = "totalSupply", source = "total_supply")
+    @Mapping(target = "priceUSD", source = "quote.usd.price")
+    @Mapping(target = "volume24h", source = "quote.usd.volume_24h")
+    @Mapping(target = "marketCap", source = "quote.usd.market_cap")
+    @Mapping(target = "observedAt", expression = "java(mapLastUpdated(cryptoCurrencyData))")
     CryptoCurrencyFiltered creatingFilteredFromRawData(CryptoCurrencyData cryptoCurrencyData);
+
+    default LocalDateTime mapLastUpdated(CryptoCurrencyData cryptoCurrencyData) {
+        return cryptoCurrencyData.getQuote().getUsd().getLast_updated().toInstant()
+            .atZone(ZoneId.of("UTC+3")).toLocalDateTime();
+    }
 
 }
